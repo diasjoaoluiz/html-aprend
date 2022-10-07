@@ -1,0 +1,204 @@
+@charset "UTF-8";
+  
+:root {
+    --default-bot: #364366;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Inicio navbar */
+
+#logo {
+    letter-spacing: 4px;
+    display: block; 
+}
+
+#header {
+    box-sizing: border-box;
+    height: 70px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(156, 156, 156);
+    
+}
+
+
+#menu { /* Deixa todas as tags ul com esse estilo */
+    list-style: none; /* tira os pontinho que representam a lista do ul */
+    display: flex;
+    gap: .5rem;
+}
+
+#menu a {
+    display: block;
+    padding: .5rem;
+    
+}
+
+#nav {
+    display: flex; /* deixa os items flexiveis na div de acordo com seus atributos (um do lado do outro) */
+    align-items: center;       
+}
+
+
+
+#nav li { /* Deixa todas as tags li que estão dentro da ul com esse estilo */
+    letter-spacing: 1px;
+    margin-left: 32px;
+    text-transform: uppercase;
+}
+
+#nav a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+#nav a:hover {
+    opacity: 0.7;
+}
+
+/* Fim do navbar */
+
+/* Botão Mobile */
+
+#btn-mobile {
+    display: none;
+} 
+
+@media (max-width: 970px) {
+    #menu { /* Deixa todas as tags ul com esse estilo */
+        list-style: none; /* tira os pontinho que representam a lista do ul */
+        display: flex;
+        gap: .5rem;
+    }
+    
+    #menu a {
+        display: block;
+        padding: .2rem;
+        
+    }
+    
+    
+    #nav li { 
+        letter-spacing: 0.5px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+
+@media (max-width: 850px) {
+    #btn-mobile {
+        display: block;
+    }
+    
+    #menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        background: #364366;
+        transition: .6s;
+        z-index: 1000;
+        height: 0px;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+
+    #nav.active #menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: auto;       
+    }
+
+    #nav.active #menu {
+        display: block;
+    }
+
+    #menu a {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0, 0, 0, .05);
+    }
+
+    #btn-mobile {
+        display: flex;
+        padding: .5rem .1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+
+    #hamburger {
+        border-top: 2px solid;
+        width: 20px;
+    }
+
+    #hamburger::after, #hamburger::before    {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+
+    #nav.active #hamburger {
+        border-top-color: transparent;
+    }
+
+    #nav.active #hamburger::before {
+        transform: rotate(135deg);
+    }
+
+    #nav.active #hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+
+    }
+
+    
+ }
+
+
+/* Fim Botão Mobile */
+
+.footer {
+    /*position: absolute;*/
+    bottom: 0; /* fixa a div no final da página */
+    background-color: #364366;
+    height: 8vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-list {
+    list-style: none;
+    display: flex;
+}
+
+.footer-items {
+    letter-spacing: 1px;
+    margin-left: 32px;
+    font-size: 10px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+}
